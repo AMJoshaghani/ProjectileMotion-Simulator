@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta charset="utf-8">
+    <title>Projectile Motion</title>
+    <style>
+      :root, body {
+        margin: 0;
+      }
+      #canvas {
+        border: 1px #000 solid;
+        position: absolute;
+        height: 99.8vh;
+        width: 90vw;
+        left: 50%;
+        transform: translate(-50%, 0);
+      }
+      #controllers {
+        width: 45%;
+        opacity: 0.7;
+        background-color: #fff;
+        z-index: 100;
+        border: 1px black solid;
+        border-radius: 5px;
+        box-shadow: 5px 5px 5px #ccc;
+        padding: 1%;
+        position: absolute;
+        display: table;
+        left: 50%;
+        transform: translate(-50%, 0);
+      }
+      label {
+        font-size: 15px;
+        color: #222;
+      }
+      label span:after{
+        content: ':';
+      }
+      input {
+        margin-right: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="controllers">
+      <label>
+        <span>Initial Velocity</span>
+        <input id='velocity' type="number" placeholder="5 (in m/s)">
+      </label>
+      <label>
+        <span>Angle</span>
+        <input id='angle' type="number" placeholder="for ex.: 45 (in degrees)">
+      </label>
+      <label>
+        <span>Damping constant</span>
+        <input step="0.01" min="0" max="1" id='damping_constant' type="number" placeholder="between 0 and 1">
+      </label>
+      <button id="begin">Start!</button>
+      <span id="err" style="color: red; display: none;">Check your inputs.</span>
+    </div>
+    <div id="cvp">
+      <canvas id="canvas" height="1280" width="1980"></canvas>
+    </div>
+    <noscript>This page contains webassembly and javascript content, please enable javascript in your browser.</noscript>
+    <script src="./bootstrap.js"></script>
+  </body>
+</html>
